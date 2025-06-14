@@ -1,1 +1,23 @@
+/* 타이틀 */
+.title {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 메인 */
+.main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
 
+.content {
+  width: 20rem;
+}
+.content-img {
+  width: 100%;
+}
