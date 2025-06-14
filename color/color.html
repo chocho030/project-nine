@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="color.css" />
   </head>
   <body>
-    <div></div>
+    <div class="title"></div>
+    <div class="main">
+      <div class="main-content">
+        <!-- 팔레트 -->
+        <div class="palette">
+          <!-- 원형 팔레트 -->
+          <div class="palette-main-container">
+            <canvas id="palette-main" width="500" height="500"></canvas>
+            <div id="dot-main"></div>
+          </div>
+          <!-- 직사각형 팔레트 -->
+          <div class="palette-sub">
+            <canvas id="palette-sub" width="20" height="500"></canvas>
+            <div id="dot-sub"></div>
+          </div>
+        </div>
+        <!-- 결과 -->
+        <div class="result">
+          <div class="result-color"></div>
+          <div class="result-hex">HEX</div>
+          <div class="result-rgb">RGB</div>
+          <div class="result-cmyk">CMYK</div>
+          <div class="result-hsb">HSB</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="color.js"></script>
   </body>
 </html>

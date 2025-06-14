@@ -1,0 +1,38 @@
+/* 메인 */
+.main-content {
+}
+
+/* 팔레트 */
+
+.palette {
+  display: flex;
+
+  gap: 3rem;
+}
+
+/* 메인 팔레트 */
+.palette-main {
+}
+
+#dot-main {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 70%;
+  border: 1px solid black;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* 결과 */
+
+.result {
+  margin-top: 10rem;
+}
+
+.result-color {
+  color: rgb(0, 0, 0);
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid black;
+}
