@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="color.css" />
   </head>
   <body>
-    <div class="title"></div>
+    <!-- 타이틀 -->
+    <div class="title">COLOR PICKER</div>
+
+    <!-- 메인 -->
     <div class="main">
+      <!-- 배경 이미지 추가 -->
       <div class="main-content">
         <!-- 팔레트 -->
         <div class="palette">
-          <!-- 원형 팔레트 -->
+          <!-- 메인 팔레트 -->
           <div class="palette-main-container">
-            <canvas id="palette-main" width="500" height="500"></canvas>
-            <div id="dot-main"></div>
+            <canvas id="palette-main" width="270px" height="270px"></canvas>
+            <div id="dot-main"><div class="dot-main-inner"></div></div>
           </div>
-          <!-- 직사각형 팔레트 -->
-          <div class="palette-sub">
-            <canvas id="palette-sub" width="20" height="500"></canvas>
+
+          <!-- 서브 팔레트 -->
+          <div class="palette-sub-container">
+            <div class="palette-sub" id="palette-sub"></div>
+            <div class="palette-sub-inner"></div>
             <div id="dot-sub"></div>
           </div>
         </div>
+
         <!-- 결과 -->
         <div class="result">
-          <div class="result-color"></div>
-          <div class="result-hex">HEX</div>
-          <div class="result-rgb">RGB</div>
-          <div class="result-cmyk">CMYK</div>
-          <div class="result-hsb">HSB</div>
+          <div id="result-color"></div>
+          <div id="result-hex">#FFFFFF</div>
+          <div id="result-rgb">RGB : (255,255,255)</div>
+          <div id="result-cmyk">CMYK :</div>
         </div>
       </div>
     </div>

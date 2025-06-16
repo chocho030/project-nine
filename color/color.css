@@ -6,38 +6,95 @@
 }
 
 /* 메인 */
+.main {
+}
 .main-content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10rem;
 }
 
 /* 팔레트 */
 .palette {
-  display: flex;
-
-  gap: 3rem;
+  position: relative;
 }
 
 /* 메인 팔레트 */
-.palette-main {
-}
+.palette-main-container {
+  position: absolute;
+  top: 7rem;
+  left: 7rem;
 
+  z-index: 10;
+}
 #dot-main {
   position: absolute;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 70%;
-  border: 1px solid black;
-  pointer-events: none;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgb(0, 0, 0);
+
   z-index: 10;
+}
+.dot-main-inner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+/* 서브 팔레트 */
+.palette-sub-container {
+  position: relative;
+
+  width: 500px;
+  height: 500px;
+}
+
+.palette-sub {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    rgb(255, 0, 0),
+    rgb(255, 255, 0),
+    rgb(0, 255, 0),
+    rgb(0, 255, 255),
+    rgb(255, 0, 255),
+    rgb(255, 0, 0)
+  );
+}
+.palette-sub-inner {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+
+  background-color: white;
 }
 
 /* 결과 */
-
 .result {
-  margin-top: 10rem;
 }
 
-.result-color {
-  color: rgb(0, 0, 0);
+#result-color {
+  background-color: rgb(255, 255, 255);
   width: 10rem;
   height: 10rem;
   border: 1px solid black;
