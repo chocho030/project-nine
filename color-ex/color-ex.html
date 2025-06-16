@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>color picker</title>
+
+    <link rel="stylesheet" href="color-ex.css" />
+  </head>
+  <body>
+    <div class="title"></div>
+    <div class="main">
+      <!-- 팔레트 -->
+      <div class="palette">
+        <!-- 메인 팔레트 -->
+        <div class="palette-main-container">
+          <canvas id="palette-main" width="270px" height="270px"></canvas>
+          <div id="dot-main"></div>
+        </div>
+        <!-- 서브 팔레트2 -->
+        <div class="palette-sub-container">
+          <div class="palette-sub"></div>
+          <div class="palette-sub-inner"></div>
+          <div id="dot-sub"></div>
+        </div>
+      </div>
+      <!-- 결과 -->
+      <div class="result">
+        <div id="result-color"></div>
+        <div id="result-hex">HEX</div>
+        <div id="result-rgb">RGB</div>
+        <div id="result-cmyk">CMYK</div>
+        <div id="result-hsb">HSB</div>
+      </div>
+    </div>
+
+    <script src="color-ex.js"></script>
+  </body>
+</html>
