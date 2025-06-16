@@ -19,19 +19,29 @@ hgradient_main.addColorStop(1, "rgba(0,0,0,1)");
 ctx_main.fillStyle = hgradient_main;
 ctx_main.fillRect(0, 0, 500, 500);
 
-// 점
+// 점, 결과
 const dot_main = document.getElementById("dot-main");
 
 isDrag = false;
 
+const color_result = document.getElementById("result-color");
+const hex_result = document.getElementById("result-hex");
+const rgb_result = document.getElementById("result-rgb");
+
 palette_main.addEventListener("mousedown", (e) => {
   isDrag = true;
+
   const rect = palette_main.getBoundingClientRect();
   const x = e.clientX - rect.x;
   const y = e.clientY - rect.y;
 
-  dot_main.style.left = `${e.clientX}px`;
-  dot_main.style.top = `${e.clientY}px`;
+  dot_main.style.left = `${x}px`;
+  dot_main.style.top = `${y}px`;
+
+  const colorData = ctx_main.getImageData(x, y, 1, 1).data;
+  rgb_result.innerHTML = `RGB : (${colorData[0]},${colorData[1]},${colorData[2]})`;
+  hex_result.innerHTML = rgbToHex(colorData[0], colorData[1], colorData[2]);
+  color_result.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
 });
 palette_main.addEventListener("mousemove", (e) => {
   if (!isDrag) return;
@@ -39,15 +49,27 @@ palette_main.addEventListener("mousemove", (e) => {
   const x = e.clientX - rect.x;
   const y = e.clientY - rect.y;
 
-  dot_main.style.left = `${e.clientX}px`;
-  dot_main.style.top = `${e.clientY}px`;
+  dot_main.style.left = `${x}px`;
+  dot_main.style.top = `${y}px`;
+
+  const colorData = ctx_main.getImageData(x, y, 1, 1).data;
+  rgb_result.innerHTML = `RGB : (${colorData[0]},${colorData[1]},${colorData[2]})`;
+  hex_result.innerHTML = rgbToHex(colorData[0], colorData[1], colorData[2]);
+  color_result.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
 });
 palette_main.addEventListener("mouseup", (e) => {
   isDrag = false;
-  const rect = palette_main.getBoundingClientRect();
-  const x = e.clientX - rect.x;
-  const y = e.clientY - rect.y;
-
-  dot_main.style.left = `${e.clientX}px`;
-  dot_main.style.top = `${e.clientY}px`;
 });
+
+function rgbToHex(r, g, b) {
+  return "hex : #" + convert16(r) + convert16(g) + convert16(b);
+}
+
+function convert16(num) {
+  const hex = num.toString(16);
+  return hex;
+}
+
+// 서브 팔레트 점
+
+// +++++++점 중앙 클릭, hex 함수 이해, cmyk 추가
