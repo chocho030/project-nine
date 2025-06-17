@@ -16,19 +16,25 @@
       <div class="main-content">
         <!-- 팔레트 -->
         <div class="palette">
-          <!-- 메인 팔레트 -->
-          <div class="palette-main-container">
-            <canvas id="palette-main" width="270px" height="270px"></canvas>
-            <div id="dot-main"><div class="dot-main-inner"></div></div>
-          </div>
+          <!-- 배경 -->
+          <div class="palette-container">
+            <!-- 서브 팔레트 - 내부 메인 팔레트 -->
+            <div class="palette-sub-container">
+              <div class="palette-sub" id="palette-sub"></div>
 
-          <!-- 서브 팔레트 -->
-          <div class="palette-sub-container">
-            <div class="palette-sub" id="palette-sub"></div>
-            <div class="palette-sub-inner"></div>
-            <div id="dot-sub"></div>
-          </div>
-        </div>
+              <!-- 메인 팔레트 -->
+              <div class="palette-main-container">
+                <canvas id="palette-main" width="270px" height="270px"></canvas>
+                <div id="dot-main"><div id="dot-main-inner"></div></div>
+              </div>
+              <div class="palette-sub-inner"></div>
+              <div id="dot-sub"></div>
+            </div>
+
+            <!-- 결과 -->
+            <div class="result">
+              <!-- 색 -->
+              <div id="result-color"></div>
 
         <!-- 결과 -->
         <div class="result">

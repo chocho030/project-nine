@@ -27,6 +27,7 @@ isDrag = false;
 const color_result = document.getElementById("result-color");
 const hex_result = document.getElementById("result-hex");
 const rgb_result = document.getElementById("result-rgb");
+const dot_main_inner = document.getElementById("dot-main-inner");
 
 palette_main.addEventListener("mousedown", (e) => {
   isDrag = true;
@@ -71,5 +72,43 @@ function convert16(num) {
 }
 
 // 서브 팔레트 점
+const palette_sub = document.getElementById("palette-sub");
+const dot_sub = document.getElementById("dot-sub");
 
-// +++++++점 중앙 클릭, hex 함수 이해, cmyk 추가
+isDrag = false;
+
+palette_sub.addEventListener("mousedown", (e) => {
+  isDrag = true;
+
+  const rect_sub = palette_sub.getBoundingClientRect();
+  const x = e.clientX - rect_sub.x;
+  const y = e.clientY - rect_sub.y;
+
+  dot_sub.style.left = `${x}px`;
+  dot_sub.style.top = `${y}px`;
+
+  const colorData = palette_sub.style.background;
+
+  wgradient_main.addColorStop(1, colorData);
+});
+palette_sub.addEventListener("mousemove", (e) => {
+  if (!isDrag) return;
+
+  const rect_sub = palette_sub.getBoundingClientRect();
+  const x = e.clientX - rect_sub.x;
+  const y = e.clientY - rect_sub.y;
+
+  dot_sub.style.left = `${x}px`;
+  dot_sub.style.top = `${y}px`;
+});
+palette_sub.addEventListener("mouseup", () => {
+  isDrag = false;
+});
+
+// 복사
+function copy(type) {
+  const text = document.getElementById("result-" + type).innerHTML;
+  navigator.clipboard.writeText(text);
+}
+
+// cmyk 공식, 복사되면 메세지 1-2초, 서브 팔레트 스포이드 기능, 전체 복사?
