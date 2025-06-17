@@ -1,5 +1,23 @@
+/* 홈 */
+.home {
+  position: fixed;
+
+  width: 2rem;
+  height: 2rem;
+
+  z-index: 10;
+}
+.home-img {
+  width: 100%;
+  height: 100%;
+}
+
 /* 제목 */
 .title {
+  position: fixed;
+  margin: 0.1rem;
+
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
