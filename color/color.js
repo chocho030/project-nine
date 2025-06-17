@@ -43,6 +43,7 @@ palette_main.addEventListener("mousedown", (e) => {
   rgb_result.innerHTML = `RGB : (${colorData[0]},${colorData[1]},${colorData[2]})`;
   hex_result.innerHTML = rgbToHex(colorData[0], colorData[1], colorData[2]);
   color_result.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
+  dot_main_inner.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
 });
 palette_main.addEventListener("mousemove", (e) => {
   if (!isDrag) return;
@@ -57,18 +58,20 @@ palette_main.addEventListener("mousemove", (e) => {
   rgb_result.innerHTML = `RGB : (${colorData[0]},${colorData[1]},${colorData[2]})`;
   hex_result.innerHTML = rgbToHex(colorData[0], colorData[1], colorData[2]);
   color_result.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
+  dot_main_inner.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
 });
 palette_main.addEventListener("mouseup", (e) => {
   isDrag = false;
 });
 
-function rgbToHex(r, g, b) {
-  return "hex : #" + convert16(r) + convert16(g) + convert16(b);
+function convertHex(num) {
+  const hex = num.toString(16);
+
+  return hex.padStart(2, "0");
 }
 
-function convert16(num) {
-  const hex = num.toString(16);
-  return hex;
+function rgbToHex(r, g, b) {
+  return "#" + convertHex(r) + convertHex(g) + convertHex(b);
 }
 
 // 서브 팔레트 점

@@ -36,12 +36,23 @@
               <!-- 색 -->
               <div id="result-color"></div>
 
-        <!-- 결과 -->
-        <div class="result">
-          <div id="result-color"></div>
-          <div id="result-hex">#FFFFFF</div>
-          <div id="result-rgb">RGB : (255,255,255)</div>
-          <div id="result-cmyk">CMYK :</div>
+              <!-- 텍스트 -->
+              <div class="result-text-container">
+                <div class="result-text" id="result-hex">#FFFFFF</div>
+                <button onclick="copy('hex')" class="copy"></button>
+              </div>
+              <div class="result-text-container">
+                <div class="result-text" id="result-rgb">
+                  RGB : (255,255,255)
+                </div>
+                <button onclick="copy('rgb')" class="copy"></button>
+              </div>
+              <div class="result-text-container">
+                <div class="result-text" id="result-cmyk">CMYK :</div>
+                <button onclick="copy('cmyk')" class="copy"></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
