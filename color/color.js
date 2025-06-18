@@ -114,4 +114,5 @@ function copy(type) {
   navigator.clipboard.writeText(text);
 }
 
-// cmyk 공식, 복사되면 메세지 1-2초, 서브 팔레트 스포이드 기능, 전체 복사?
+// cmyk 공식, 복사되면 메세지 1-2초, 서브 팔레트 스포이드 기능
+// 역 버전, r,g,b 입력 시 팔레트

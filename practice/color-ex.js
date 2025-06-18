@@ -91,3 +91,5 @@ palette_main.addEventListener("mouseover", (e) => {});
 //   dot_sub.style.top = `${e.clientY}px`;
 // });
 // palette_sub.addEventListener("mouseover", (e) => {});
+
+// test

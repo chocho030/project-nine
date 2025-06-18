@@ -1,0 +1,16 @@
+.main {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+#test-cir {
+  position: absolute;
+}
+
+#test-cir-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
