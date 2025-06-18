@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="result-ch.css" />
+  </head>
+  <body>
+<!-- 팔레트 -->
+        <div class="palette">
+          <!-- 배경 -->
+          <div class="palette-container">
+            <!-- 서브 팔레트 - 내부 메인 팔레트 -->
+            <div class="palette-sub-container">
+              <canvas id="palette-sub" width="500px" height="500px"></canvas>
+              <div id="palette-sub-inner"></div>
+              <div id="dot-sub"></div>
+
+              <!-- 메인 팔레트 -->
+              <div class="palette-main-container">
+                <canvas id="palette-main" width="260px" height="260px"></canvas>
+                <div id="dot-main"><div id="dot-main-inner"></div></div>
+              </div>
+            </div>
+
+            <!-- 결과 -->
+            <div class="result">
+              <!-- 색 -->
+              <div id="result-color"></div>
+
+              <!-- 텍스트 -->
+              <div class="result-text-container">
+                <div class="result-text" id="result-hex">#FFFFFF</div>
+       
+              </div>
+              <div class="result-text-container">
+                <div class="result-text" id="result-rgb">
+                  RGB : (255,255,255)
+                </div>
+       
+              </div>
+              <div class="result-text-container">
+                <div class="result-text" id="result-cmyk">CMYK :</div>
+            
+              </div>
+            </div>
+    
+    <script src="result-ch.js"></script>
+  </body>
+</html>

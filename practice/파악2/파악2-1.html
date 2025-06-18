@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main">
+      <div class="text" id="text">안뇽</div>
+      <div class="test" id="test"></div>
+    </div>
+    <button id="bt" onclick="check()"></button>
+
+    <style>
+      #main {
+        width: 100%;
+        height: 80%;
+      }
+
+      .test {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+
+        width: 10rem;
+        height: 10rem;
+
+        border: 1px solid black;
+      }
+
+      #bt {
+        width: 5rem;
+        height: 5rem;
+      }
+    </style>
+
+    <script>
+      const test = document.getElementById("test");
+      const text = document.getElementById("text");
+      const main = document.getElementById("main");
+
+      let num1 = 10;
+      let num2 = 10;
+
+      main.addEventListener("mousedown", (e) => {
+        const rect = main.getBoundingClientRect();
+        const x = e.clientX - rect.x;
+        const y = e.clientY - rect.y;
+
+        num1 = x;
+        num2 = y;
+
+        test.style.top = `${num2}px`;
+        test.style.left = `${num1}px`;
+      });
+
+      function check() {
+        console.log(num1);
+      }
+    </script>
+  </body>
+</html>

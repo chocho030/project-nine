@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>파악2</title>
+  </head>
+  <body>
+    <canvas id="can" width="250" height="250"></canvas>
+    <div id="result"></div>
+
+    <style>
+      #result {
+        width: 10rem;
+        height: 10rem;
+
+        border: 1px solid black;
+      }
+    </style>
+
+    <script>
+      const result = document.getElementById("result");
+      const can = document.getElementById("can");
+      const ctx = can.getContext("2d");
+
+      const wgradient = ctx.createLinearGradient(0, 0, 250, 0);
+
+      wgradient.addColorStop(0, "white");
+      wgradient.addColorStop(1, "rgb(135,0,253)");
+
+      ctx.fillStyle = wgradient;
+      ctx.fillRect(0, 0, 500, 500);
+
+      const hgradient = ctx.createLinearGradient(0, 0, 0, 250);
+
+      hgradient.addColorStop(0, "rgba(0,0,0,0)");
+      hgradient.addColorStop(1, "rgba(0,0,0,1)");
+
+      ctx.fillStyle = hgradient;
+      ctx.fillRect(0, 0, 500, 500);
+
+      const colorData_test = ctx.getImageData(50, 50, 1, 1).data;
+      result.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
+    </script>
+  </body>
+</html>

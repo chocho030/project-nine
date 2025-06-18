@@ -1,3 +1,8 @@
+// 문제) 서브 색상 바꿀 때도 결괏값이 바뀌게 하는 법이 있나?
+// // 근데 메인 dot 위치는 안 바뀌니까 그거에도 적용돼야 하는데
+// 1. (반영) main, sub dot 위치 모두 반용.
+// 2. (대안) sub dot이 이동할 때마다 main dot 위치 초기화.
+
 // 메인 팔레트
 
 const palette_main = document.getElementById("palette-main");
@@ -19,18 +24,13 @@ hgradient_main.addColorStop(1, "rgba(0,0,0,1)");
 ctx_main.fillStyle = hgradient_main;
 ctx_main.fillRect(0, 0, 500, 500);
 
-function ch() {
-  const colorData_test = ctx_main.getImageData(numX, numY, 1, 1).data;
-
-  color_result.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
-  dot_main_inner.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
-}
-
 // 점, 결과
 const dot_main = document.getElementById("dot-main");
 
-let numX = 0;
-let numY = 0;
+//
+let numX = 2;
+let numY = 2;
+//
 
 isDrag = false;
 
@@ -43,11 +43,11 @@ palette_main.addEventListener("mousedown", (e) => {
   isDrag = true;
 
   const rect = palette_main.getBoundingClientRect();
-  const x = e.clientX - rect.x;
-  const y = e.clientY - rect.y;
+  const x1 = e.clientX - rect.x;
+  const y1 = e.clientY - rect.y;
 
-  numX = x;
-  numY = y;
+  numX = x1;
+  numY = y1;
 
   dot_main.style.left = `${numX}px`;
   dot_main.style.top = `${numY}px`;
@@ -56,13 +56,12 @@ palette_main.addEventListener("mousedown", (e) => {
 });
 palette_main.addEventListener("mousemove", (e) => {
   if (!isDrag) return;
-
   const rect = palette_main.getBoundingClientRect();
-  const x = e.clientX - rect.x;
-  const y = e.clientY - rect.y;
+  const x1 = e.clientX - rect.x;
+  const y1 = e.clientY - rect.y;
 
-  numX = x;
-  numY = y;
+  numX = x1;
+  numY = y1;
 
   dot_main.style.left = `${numX}px`;
   dot_main.style.top = `${numY}px`;
@@ -75,6 +74,13 @@ palette_main.addEventListener("mouseup", (e) => {
 palette_main.addEventListener("mouseout", () => {
   isDrag = false;
 });
+
+function ch() {
+  const colorData_test = ctx_main.getImageData(numX, numY, 1, 1).data;
+
+  color_result.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
+  dot_main_inner.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
+}
 
 function convertHex(num) {
   const hex = num.toString(16);
@@ -178,37 +184,3 @@ palette_sub.addEventListener("mouseup", () => {
 palette_sub.addEventListener("mouseout", () => {
   isDrag = false;
 });
-
-// 복사
-function copy(type) {
-  const text = document.getElementById("result-" + type).innerHTML;
-  navigator.clipboard.writeText(text);
-}
-
-// cmyk 공식, 복사되면 메세지 1-2초, 서브 팔레트 스포이드 기능
-// 역 버전, r,g,b 입력 시 팔레트
-
-// hex 변경 시, 한자리 숫자는 한자리로만 나오는 문제. > 해결
-
-// 헤맸던 부분 - conic-gradient
-// // conic-gradient 시작 부분 변경?
-
-// inner도 canvas로 만들 경우, dot이 작동하지 않는 이유?
-
-// border-radius로 깍으면 공간 자체가 깎이는 듯
-// // 인식 범위 제한이 됨
-
-// 함수 안에서 정의됨 건 밖에서도 그대로 적용?
-
-// 문제) 서브 색상 바꿀 때도 result-color가 바뀌게 하는 법이 있나?
-// // 근데 메인 dot 위치는 안 바뀌니까 그거에도 적용돼야 하는데
-// 1. (반영) main, sub dot 위치 모두 반용.
-// 2. (대안) sub dot이 이동할 때마다 main dot 위치 초기화.
-
-// 수정 - 스포이드 기능에서 커서가 드래그 중에 영역 밖으로 나가면 isDrag 값이 변하지 않음.
-// // 영역 밖으로 나갈 경우에도 isDrag 값이 변경되게 수정
-// 문제)
-// down > move > out > up > over
-// // 원래는 위의 상황에서 이미 뗀 상태인데 움직이는 게 싫어서 out 상황 추가.
-// down > move > out > over
-// // 그런데 이 상황이 헷갈림.
