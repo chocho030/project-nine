@@ -73,8 +73,8 @@
 /* 메인 팔레트 */
 .palette-main-container {
   position: absolute;
-  top: 7.8rem;
-  left: 7.8rem;
+  top: 7.5rem;
+  left: 7.5rem;
 
   z-index: 10;
 }
@@ -115,28 +115,21 @@
   height: 500px;
 }
 
-.palette-sub {
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
+#palette-sub {
+  position: absolute;
 
-  background: conic-gradient(
-    rgb(255, 0, 0),
-    rgb(255, 255, 0),
-    rgb(0, 255, 0),
-    rgb(0, 255, 255),
-    rgb(0, 0, 255),
-    rgb(255, 0, 255),
-    rgb(255, 0, 0)
-  );
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
 }
-.palette-sub-inner {
+
+#palette-sub-inner {
   position: absolute;
   top: 50px;
   left: 50px;
 
-  width: 420px;
-  height: 420px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
 
   background-color: white;
