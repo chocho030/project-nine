@@ -1,0 +1,39 @@
+/* 홈 */
+.home {
+  position: absolute;
+
+  width: 2rem;
+  height: 2rem;
+
+  z-index: 10;
+}
+.home-img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* 제목 */
+.title {
+  position: absolute;
+  margin: 0.1rem;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+}
+
+/* 배경 */
+.back {
+  margin: 2rem;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.back-img {
+}
