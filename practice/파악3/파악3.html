@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input
+        class="input"
+        id="input1"
+        type="number"
+        placeholder="R"
+        min="0"
+        max="255"
+      />
+      <input
+        class="input"
+        id="input2"
+        placeholder="G"
+        type="number"
+        min="0"
+        max="255"
+      />
+      <input
+        class="input"
+        id="input3"
+        type="number"
+        placeholder="B"
+        min="0"
+        max="255"
+      />
+    </div>
+
+    <div id="result"></div>
+
+    <style>
+      #result {
+        margin: 1rem;
+        border: 1px solid black;
+        width: 5rem;
+        height: 5rem;
+
+        background-color: rgb(255, 255, 255);
+      }
+    </style>
+
+    <script>
+      const result = document.getElementById("result");
+      const inputs = document.getElementsByClassName("input");
+
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("input", ch);
+      }
+
+      function ch() {
+        const input1 = document.getElementById("input1").value;
+        const input2 = document.getElementById("input2").value;
+        const input3 = document.getElementById("input3").value;
+        const num1 = Number(input1);
+        const num2 = Number(input2);
+        const num3 = Number(input3);
+
+        const color = `rgb(${num1},${num2},${num3})`;
+
+        result.style.backgroundColor = color;
+      }
+
+      function hexToRgb() {
+        const str = hex[0] + hex[1];
+        str = num.toString(10);
+
+        result.innerText = str;
+      }
+    </script>
+  </body>
+</html>

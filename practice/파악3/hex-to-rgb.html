@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="hex" type="text" value="#" maxlength="7" />
+
+    <button onclick="hexToRgb()" id="test">click</button>
+
+    <div id="result"></div>
+
+    <style>
+      #result {
+        margin: 1rem;
+        border: 1px solid black;
+        width: 5rem;
+        height: 5rem;
+
+        background-color: rgb(255, 255, 255);
+      }
+    </style>
+
+    <script>
+      const result = document.getElementById("result");
+
+      function hexToRgb() {
+        const hex = document.getElementById("hex").value;
+
+        const int_r = hex[1] + hex[2];
+        const int_g = hex[3] + hex[4];
+        const int_b = hex[5] + hex[6];
+
+        const r = parseInt(int_r, 16);
+        const g = parseInt(int_g, 16);
+        const b = parseInt(int_b, 16);
+
+        result.innerText = "R : " + r + " G : " + g + " B : " + b;
+      }
+    </script>
+  </body>
+</html>

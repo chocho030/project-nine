@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select onclick="ch()" id="sel">
+      <option value="rgb">rgb</option>
+      <option value="hex">hex</option>
+      <option value="cmyk">cmyk</option>
+    </select>
+
+    <div id="result">안뇽</div>
+
+    <script>
+      const sel = document.getElementById("sel");
+      const result = document.getElementById("result");
+
+      function ch() {
+        if (sel.value == "rgb") {
+          result.innerText = "rgb";
+        } else if (sel.value == "hex") {
+          result.innerText = "hex";
+        } else if (sel.value == "cmyk") {
+          result.innerText = "cmyk";
+        }
+      }
+    </script>
+  </body>
+</html>

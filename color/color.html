@@ -16,45 +16,123 @@
     <div class="title">COLOR PICKER</div>
 
     <!-- 메인 -->
-    <div class="main">
+    <div id="main" class="main">
       <!-- 배경 이미지 추가 -->
       <div class="main-content">
+        <!--  -->
+        <div class="back">
+          <img class="back-img" src="/img/color-back.png" alt="" />
+        </div>
+
         <!-- 팔레트 -->
         <div class="palette">
-          <!-- 배경 -->
-          <div class="palette-container">
-            <!-- 서브 팔레트 - 내부 메인 팔레트 -->
-            <div class="palette-sub-container">
-              <canvas id="palette-sub" width="500px" height="500px"></canvas>
-              <div id="palette-sub-inner"></div>
-              <div id="dot-sub"></div>
+          <!-- 서브 팔레트 - 내부 메인 팔레트 -->
+          <div class="palette-sub-container">
+            <canvas id="palette-sub" width="500px" height="500px"></canvas>
+            <div id="palette-sub-inner"></div>
+            <div id="dot-sub"></div>
 
-              <!-- 메인 팔레트 -->
-              <div class="palette-main-container">
-                <canvas id="palette-main" width="260px" height="260px"></canvas>
-                <div id="dot-main"><div id="dot-main-inner"></div></div>
-              </div>
+            <!-- 메인 팔레트 -->
+            <div class="palette-main-container">
+              <canvas id="palette-main" width="260px" height="260px"></canvas>
+              <div id="dot-main"><div id="dot-main-inner"></div></div>
+            </div>
+          </div>
+
+          <!-- 결과,입력 -->
+          <div class="result">
+            <!-- 색 -->
+            <div id="result-color"></div>
+
+            <!-- 텍스트 -->
+            <div class="result-text-container">
+              <div class="result-text" id="result-hex">#FFFFFF</div>
+              <button onclick="copy('hex')" class="copy"></button>
+            </div>
+            <div class="result-text-container">
+              <div class="result-text" id="result-rgb">RGB : (255,255,255)</div>
+              <button onclick="copy('rgb')" class="copy"></button>
+            </div>
+            <div class="result-text-container">
+              <div class="result-text" id="result-cmyk">CMYK :</div>
+              <button onclick="copy('cmyk')" class="copy"></button>
             </div>
 
-            <!-- 결과 -->
-            <div class="result">
-              <!-- 색 -->
-              <div id="result-color"></div>
+            <!-- 입력 -->
+            <div class="input">
+              <!-- 선택 -->
+              <select onchange="inputType()" id="input-type" class="input-type">
+                <option value="rgb">rgb</option>
+                <option value="hex">hex</option>
+                <option value="cmyk">cmyk</option>
+              </select>
 
-              <!-- 텍스트 -->
-              <div class="result-text-container">
-                <div class="result-text" id="result-hex">#FFFFFF</div>
-                <button onclick="copy('hex')" class="copy"></button>
+              <!-- rgb -->
+              <div id="input-rgb">
+                <input
+                  class="input-main rgb"
+                  id="rgb-r"
+                  type="number"
+                  min="0"
+                  max="255"
+                  placeholder="R"
+                />
+                <input
+                  class="input-main rgb"
+                  id="rgb-g"
+                  type="number"
+                  min="0"
+                  max="255"
+                  placeholder="G"
+                />
+                <input
+                  class="input-main rgb"
+                  id="rgb-b"
+                  type="number"
+                  min="0"
+                  max="255"
+                  placeholder="B"
+                />
               </div>
-              <div class="result-text-container">
-                <div class="result-text" id="result-rgb">
-                  RGB : (255,255,255)
-                </div>
-                <button onclick="copy('rgb')" class="copy"></button>
+
+              <!-- hex -->
+              <div id="input-hex">
+                <input
+                  class="input-main"
+                  id="hex"
+                  type="text"
+                  value="#"
+                  maxlength="7"
+                />
+                <button onclick="funcHex()" id="hex-button">OK</button>
               </div>
-              <div class="result-text-container">
-                <div class="result-text" id="result-cmyk">CMYK :</div>
-                <button onclick="copy('cmyk')" class="copy"></button>
+
+              <!-- cmyk -->
+              <div id="input-cmyk">
+                <input
+                  class="input-main"
+                  id="cmyk"
+                  type="number"
+                  placeholder="C"
+                />
+                <input
+                  class="input-main"
+                  id="cmyk"
+                  type="number"
+                  placeholder="M"
+                />
+                <input
+                  class="input-main"
+                  id="cmyk"
+                  type="number"
+                  placeholder="Y"
+                />
+                <input
+                  class="input-main"
+                  id="cmyk"
+                  type="number"
+                  placeholder="K"
+                />
               </div>
             </div>
           </div>
