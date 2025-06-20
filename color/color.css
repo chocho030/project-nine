@@ -74,12 +74,24 @@
 }
 
 /* 메인 팔레트 */
-.palette-main-container {
+.sub-inner {
   position: absolute;
-  top: 7.5rem;
-  left: 7.5rem;
+
+  top: 50px;
+  left: 50px;
+
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+
+  background-color: white;
 
   z-index: 10;
+}
+.palette-main-container {
+  position: absolute;
+  top: 4.65rem;
+  left: 4.65rem;
 }
 
 #dot-main {
@@ -124,18 +136,6 @@
   width: 500px;
   height: 500px;
   border-radius: 50%;
-}
-
-#palette-sub-inner {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-
-  background-color: white;
 }
 
 #dot-sub {
@@ -224,7 +224,7 @@
 
 /* 입력 - rgb */
 #input-rgb {
-  display: none;
+  display: block;
 }
 .rgb {
   width: 3.7rem;

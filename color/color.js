@@ -1,15 +1,15 @@
 // 메인 팔레트
-const main = document.getElementById("main");
+const palette = document.getElementById("palette");
 const palette_main = document.getElementById("palette-main");
 const ctx_main = palette_main.getContext("2d");
 
 const wgradient_main = ctx_main.createLinearGradient(0, 0, 250, 0);
 
 wgradient_main.addColorStop(0, "white");
-wgradient_main.addColorStop(1, "rgb(135,0,253)");
+wgradient_main.addColorStop(1, "rgb(255,0,0)");
 
 ctx_main.fillStyle = wgradient_main;
-ctx_main.fillRect(0, 0, 500, 500);
+ctx_main.fillRect(0, 0, 250, 250);
 
 const hgradient_main = ctx_main.createLinearGradient(0, 0, 0, 250);
 
@@ -17,19 +17,15 @@ hgradient_main.addColorStop(0, "rgba(0,0,0,0)");
 hgradient_main.addColorStop(1, "rgba(0,0,0,1)");
 
 ctx_main.fillStyle = hgradient_main;
-ctx_main.fillRect(0, 0, 500, 500);
+ctx_main.fillRect(0, 0, 250, 250);
 
 function ch() {
-  const colorData_test = ctx_main.getImageData(numX, numY, 1, 1).data;
+  const colorData = ctx_main.getImageData(numX, numY, 1, 1).data;
 
-  color_result.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
-  dot_main_inner.style.backgroundColor = `rgb(${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
-  rgb_result.innerHTML = `RGB : (${colorData_test[0]},${colorData_test[1]},${colorData_test[2]})`;
-  hex_result.innerHTML = rgbToHex(
-    colorData_test[0],
-    colorData_test[1],
-    colorData_test[2]
-  );
+  color_result.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
+  dot_main_inner.style.backgroundColor = `rgb(${colorData[0]},${colorData[1]},${colorData[2]})`;
+  rgb_result.innerHTML = `RGB : (${colorData[0]},${colorData[1]},${colorData[2]})`;
+  hex_result.innerHTML = rgbToHex(colorData[0], colorData[1], colorData[2]);
 }
 
 // 점, 결과
@@ -38,7 +34,7 @@ const dot_main = document.getElementById("dot-main");
 let numX = 0;
 let numY = 0;
 
-isDrag = false;
+isDrag1 = false;
 
 const color_result = document.getElementById("result-color");
 const hex_result = document.getElementById("result-hex");
@@ -46,7 +42,7 @@ const rgb_result = document.getElementById("result-rgb");
 const dot_main_inner = document.getElementById("dot-main-inner");
 
 palette_main.addEventListener("mousedown", (e) => {
-  isDrag = true;
+  isDrag1 = true;
 
   const rect = palette_main.getBoundingClientRect();
   const x = e.clientX - rect.x;
@@ -60,26 +56,24 @@ palette_main.addEventListener("mousedown", (e) => {
 
   ch();
 });
-palette_main.addEventListener("mousemove", (e) => {
-  if (!isDrag) return;
+palette.addEventListener("mousemove", (e) => {
+  if (!isDrag1) return;
 
   const rect = palette_main.getBoundingClientRect();
+
   const x = e.clientX - rect.x;
   const y = e.clientY - rect.y;
 
-  numX = x;
-  numY = y;
+  numX = Math.min(Math.max(x, 0), 249.99);
+  numY = Math.min(Math.max(y, 0), 249.99);
 
   dot_main.style.left = `${numX}px`;
   dot_main.style.top = `${numY}px`;
 
   ch();
 });
-palette_main.addEventListener("mouseup", () => {
-  isDrag = false;
-});
-palette_main.addEventListener("mouseout", () => {
-  isDrag = false;
+palette.addEventListener("mouseup", () => {
+  isDrag1 = false;
 });
 
 function convertHex(num) {
@@ -98,7 +92,7 @@ const ctx_sub = palette_sub.getContext("2d");
 
 ctx_sub.arc(250, 250, 250, 0, 2 * Math.PI);
 
-const grad = ctx_sub.createConicGradient(0, 250, 250);
+const grad = ctx_sub.createConicGradient(11, 250, 250);
 
 grad.addColorStop(0, "rgb(255, 0, 0)");
 grad.addColorStop(0.16, "rgb(255, 255, 0)");
@@ -178,12 +172,12 @@ palette_sub.addEventListener("mousemove", (e) => {
 
   ch();
 });
-palette_sub.addEventListener("mouseup", () => {
+main.addEventListener("mouseup", () => {
   isDrag = false;
 });
-palette_sub.addEventListener("mouseout", () => {
-  isDrag = false;
-});
+// palette_sub.addEventListener("mouseout", () => {
+//   isDrag = false;
+// });
 
 // 복사
 function copy(type) {
@@ -285,8 +279,9 @@ function funcHex() {
 // 1. 범위 제한
 // 2. 정수만 가능하게
 
-// 입력 후 점 위치 변경
-
 // 바
 
+//
+
+// 입력 후 점 위치 변경.
 // rgb를 처음에 선택하면 입력창이 안 뜸. onclick은 싫음.
