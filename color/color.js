@@ -242,6 +242,30 @@ rgb_r.addEventListener("input", (e) => {
     e.target.value = 255;
   }
 });
+rgb_g.addEventListener("input", (e) => {
+  const target = parseInt(e.target.value);
+
+  console.log(target);
+  e.target.value = 0;
+
+  e.target.value = target;
+
+  if (target > 255) {
+    e.target.value = 255;
+  }
+});
+rgb_b.addEventListener("input", (e) => {
+  const target = parseInt(e.target.value);
+
+  console.log(target);
+  e.target.value = 0;
+
+  e.target.value = target;
+
+  if (target > 255) {
+    e.target.value = 255;
+  }
+});
 
 // 입력- hex
 function funcHex() {
