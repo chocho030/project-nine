@@ -71,12 +71,43 @@
   border-radius: 1rem;
 }
 
+/* 콘텐츠 */
+
+.content {
   position: absolute;
+  top: 8rem;
+  left: 16.5rem;
+
+  z-index: 10;
+}
+
+.content-line {
+  display: flex;
+
+  margin-bottom: 2.5rem;
+}
+
+.css-code {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+
+  width: 200px;
+  height: 200px;
+  margin: 0.5rem;
+
+  background-color: white;
+  border: 2px solid black;
 }
-.back-img {
+
+/* 컨텐츠 페이지 */
+#content-1 {
+  display: none;
 }
+#content-2 {
+  display: none;
+}
+#content-3 {
+  display: none;
+}
+/* 복사 버튼 */
