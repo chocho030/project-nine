@@ -211,24 +211,37 @@ function inputType() {
 
 // 입력 - rgb
 const rgb = document.getElementsByClassName("rgb");
+const rgb_r = document.getElementById("rgb-r");
+const rgb_g = document.getElementById("rgb-g");
+const rgb_b = document.getElementById("rgb-b");
 
 for (let i = 0; i < rgb.length; i++) {
   rgb[i].addEventListener("input", funcRgb);
 }
 
 function funcRgb() {
-  const rgb_r = document.getElementById("rgb-r").value;
-  const rgb_g = document.getElementById("rgb-g").value;
-  const rgb_b = document.getElementById("rgb-b").value;
-  const r = Number(rgb_r);
-  const g = Number(rgb_g);
-  const b = Number(rgb_b);
+  const r = Number(rgb_r.value);
+  const g = Number(rgb_g.value);
+  const b = Number(rgb_b.value);
 
   color_result.style.backgroundColor = `rgb(${r},${g},${b})`;
   dot_main_inner.style.backgroundColor = `rgb(${r},${g},${b})`;
   rgb_result.innerHTML = `RGB : (${r},${g},${b})`;
   hex_result.innerHTML = rgbToHex(r, g, b);
 }
+
+rgb_r.addEventListener("input", (e) => {
+  const target = parseInt(e.target.value);
+
+  console.log(target);
+  e.target.value = 0;
+
+  e.target.value = target;
+
+  if (target > 255) {
+    e.target.value = 255;
+  }
+});
 
 // 입력- hex
 function funcHex() {
