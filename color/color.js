@@ -172,7 +172,7 @@ palette_sub.addEventListener("mousemove", (e) => {
 
   ch();
 });
-main.addEventListener("mouseup", () => {
+palette.addEventListener("mouseup", () => {
   isDrag = false;
 });
 // palette_sub.addEventListener("mouseout", () => {
